@@ -1,0 +1,39 @@
+opam-version: "2.0"
+synopsis: "A simple, lightweight library for ANSI formatting"
+description:
+  "A simple, lightweight library for ANSI formatting with powerful features such as a tokenization-based system for pretty-printing code in the terminal."
+maintainer: ["Qexat <contact@qexat.com>"]
+authors: ["Qexat <contact@qexat.com>"]
+license: "MIT"
+tags: ["ansi" "formatting" "pretty-printing" "terminal"]
+homepage: "https://github.com/qexat/ansifmt"
+bug-reports: "https://github.com/qexat/ansifmt/issues"
+depends: [
+  "dune" {>= "3.17"}
+  "ocaml"
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/qexat/ansifmt.git"
+url {
+  src:
+    "https://github.com/qexat/ansifmt/releases/download/0.1.2/ansifmt-0.1.2.tbz"
+  checksum: [
+    "sha256=4f3b70eda5b06de2615911d5482356851b265d325275bc29a0c6ba5ef0800a7c"
+    "sha512=a6b2bab51d70b996352ff8b2195818e58a94c444dd49d3209a94380cc2a94c0a134f90beee769ab4ad5d258f613e8bc55c2100fce2d8f85d3ffdebb905bbf330"
+  ]
+}
+x-commit-hash: "ea2f6739cef2da8d233fb4c944874c870857bd65"
